@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/author")
@@ -25,14 +24,14 @@ public class AuthorController {
         return new ResponseEntity<>(newAuthor, HttpStatus.CREATED);
     }
 
-    @GetMapping("/get")
+    @GetMapping("/get/{id}")
     public ResponseEntity<AuthorModel> getAuthor(@PathVariable Long id){
         return authorService.getAuthor(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PutMapping
+    @PutMapping("/put/{id}")
     public ResponseEntity<AuthorModel> putAuthor(@PathVariable Long id, @RequestBody AuthorModel authorDetails){
         try{
             AuthorModel updatedAuthor = authorService.putAuthor(id, authorDetails);
@@ -42,7 +41,7 @@ public class AuthorController {
         }
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteAuthor(@PathVariable Long id){
         authorService.deleteAuthor(id);
         return ResponseEntity.noContent().build();
