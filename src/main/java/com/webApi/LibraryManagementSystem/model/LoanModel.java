@@ -32,6 +32,13 @@ public class LoanModel {
         return id;
     }
 
+    public BookModel getBook() {
+        return book;
+    }
+    public void setBook(BookModel book) {
+        this.book = book;
+    }
+
     public UserModel getUser() {
         return user;
     }
