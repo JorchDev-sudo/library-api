@@ -18,6 +18,9 @@ public class UserModel {
     public Long getId() {
         return id;
     }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -30,6 +33,12 @@ public class UserModel {
         return memberId;
     }
     public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
+
+    public UserModel(){}
+    public UserModel(String name, String memberId){
+        this.name = name;
         this.memberId = memberId;
     }
 }

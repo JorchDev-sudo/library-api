@@ -27,6 +27,9 @@ public class BookModel {
     public Long getId() {
         return id;
     }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -65,8 +68,10 @@ public class BookModel {
     }
 
     public BookModel(){}
-    public BookModel(String title, Integer stock){
+    public BookModel(String title, String isbn, Integer publicationYear, Integer stock){
         this.title = title;
+        this.isbn = isbn;
+        this.publicationYear = publicationYear;
         this.stock = stock;
     }
 }
