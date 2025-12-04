@@ -13,4 +13,4 @@ ARG JAR_FILE=target/LibraryManagementSystem-1.0.0.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java","-jar", "app.jar"]
+ENTRYPOINT ["java", "-Dspring.profiles.active=prod","-jar", "app.jar"]
