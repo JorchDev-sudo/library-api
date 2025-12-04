@@ -9,7 +9,7 @@ RUN ./mvnw clean package -DskipTests
 
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
-ARG JAR_FILE=target/LibraryManagementSystem-1.0.0.jar
+ARG JAR_FILE=target\LibraryManagementSystem-1.0.0.jar
 
 EXPOSE 8080
 
