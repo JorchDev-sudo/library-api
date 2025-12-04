@@ -3,6 +3,7 @@ package com.webApi.LibraryManagementSystem.controller;
 import com.webApi.LibraryManagementSystem.dto.LoanRequestDTO;
 import com.webApi.LibraryManagementSystem.dto.LoanResponseDTO;
 import com.webApi.LibraryManagementSystem.service.LoanService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/loans")
+@SecurityRequirement(name = "basicAuth")
 public class LoanController {
     private final LoanService loanService;
 

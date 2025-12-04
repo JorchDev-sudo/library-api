@@ -44,6 +44,13 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
+
+                        
+                        .requestMatchers("/swagger-ui/**").permitAll()
+                        .requestMatchers("/v3/api-docs/**").permitAll()
+                        .requestMatchers("/h2-console/**").permitAll()
+
+
                         .requestMatchers(HttpMethod.POST, "/books").hasRole("LIBRARIAN")
                         .requestMatchers(HttpMethod.PUT, "/books/**").hasRole("LIBRARIAN")
                         .requestMatchers(HttpMethod.DELETE, "/books/**").hasRole("LIBRARIAN")

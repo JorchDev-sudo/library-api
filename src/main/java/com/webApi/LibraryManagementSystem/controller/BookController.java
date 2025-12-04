@@ -3,6 +3,7 @@ package com.webApi.LibraryManagementSystem.controller;
 import com.webApi.LibraryManagementSystem.dto.BookRequestDTO;
 import com.webApi.LibraryManagementSystem.dto.BookResponseDTO;
 import com.webApi.LibraryManagementSystem.service.BookService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/books")
+@SecurityRequirement(name = "basicAuth")
 public class BookController {
     private final BookService bookService;
 
