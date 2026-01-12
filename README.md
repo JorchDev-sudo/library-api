@@ -1,108 +1,227 @@
 📚 Library API
 
-Library API es una API REST desarrollada con Spring Boot que gestiona una biblioteca digital
-permitiendo administrar autores, libros, préstamos y usuarios
-con autenticación segura basada en JWT y documentación automática mediante Swagger/OpenAPI.
 
-🚀 Características principales:
 
-  -🔐 Autenticación y autorización con JWT (stateless)
 
-  -🧑‍💻 Gestión completa de:
-    Autores
-    Libros
-    Usuarios
-    Préstamos
 
-  -📄 Paginación y ordenamiento
 
-  -🧾 DTOs + MapStruct para desacoplar dominio y API
 
-  -🧠 Manejo global de excepciones
 
-  -📑 Documentación interactiva con Swagger
 
-  -🧪 Tests unitarios y de seguridad
 
-  -🛠 Migraciones de base de datos con Flyway
 
-  -🌍 Configuración por perfiles (dev / prod)
 
-Arquitectura en capas claramente separadas:
+
+
+
+
+📌 Overview
+
+Library API is a production-oriented REST API built with Spring Boot for managing a digital library, including authors, books, users, and loans, with JWT-based authentication, role-based access control, and fully documented endpoints via Swagger/OpenAPI.
+
+This project is part of my backend portfolio and showcases how I design secure, maintainable, and testable APIs using the modern Spring ecosystem.
+
+🚀 Key Features
+
+🔐 Stateless authentication & authorization with JWT
+
+🧑‍💻 Full management of:
+
+Authors
+Books
+Users
+Loans
+
+🔗 Domain relationships:
+
+Author ↔ Book (Many-to-Many)
+
+User → Loan (One-to-Many)
+
+Book → Loan (One-to-Many)
+
+📄 Pagination and sorting
+
+🧾 DTO-based API design using MapStruct
+
+🧠 Centralized global exception handling
+
+📑 Interactive API documentation (Swagger / OpenAPI)
+
+🧪 Unit and security tests
+
+🛠 Database migrations with Flyway
+
+🌍 Environment-based configuration (dev / prod)
+
+🏗️ Architecture:
+
+The application follows a clear layered architecture, inspired by real-world Spring Boot backend projects:
+
 client
- ├── controllers
+ └── controllers
  └── security
 
 server
- ├── services
- ├── dto
- ├── mappers
- ├── exceptions
+ └── services
+ └── dto
+ └── mappers
+ └── exceptions
  └── handlers
 
 persistence
- ├── entities
+ └── entities
  └── repositories
 
- 🛠️ Stack tecnológico:
+
+✔ Strong separation of concerns
+✔ Controllers kept thin
+✔ Business logic isolated in services
+✔ Clean mapping between domain and API models
+
+🛠️ Tech Stack:
+
+Language & Platform:
 
 Java 17
 
 Spring Boot 3.2.5
 
+Spring Ecosystem
+
 Spring Web
 
 Spring Data JPA
 
-Spring Security (JWT)
+Spring Security
+
+Security
+
+JWT authentication
+
+Custom JwtAuthenticationFilter
+
+Custom UserDetailsService
+
+Stateless security configuration
+
+Persistence
+
+Hibernate
+
+H2 (development)
+
+PostgreSQL (production)
+
+Flyway migrations
+
+Tooling & Quality:
 
 MapStruct
 
-Flyway
-
-H2 (dev)
-
-PostgreSQL (prod)
-
 Swagger / OpenAPI (springdoc)
 
-JUnit 5 + Mockito
+JUnit 5
+
+Mockito
 
 Maven
 
-🔐 Seguridad
+🔐 Security Design
 
-Autenticación basada en JWT
+JWT-based stateless authentication
 
-Filtros personalizados (JwtAuthenticationFilter)
+Custom security filter chain
 
-Implementación propia de UserDetailsService
+Role-based endpoint protection
 
-Protección por roles y endpoints
+Custom UserDetailsService
 
-Configuración completamente stateless
+Proper HTTP status handling:
 
-⚙️ Configuración y ejecución
-1️⃣ Clonar el repositorio
+401 Unauthorized
+
+403 Forbidden
+
+Centralized security exception handling
+
+This setup closely mirrors enterprise-grade Spring Security configurations.
+
+📑 API Documentation
+
+Swagger UI is available at:
+
+http://localhost:8080/swagger-ui.html
+
+
+or
+
+http://localhost:8080/swagger-ui/index.html
+
+⚙️ Running the Application:
+
+1️⃣ Clone the repository
 git clone https://github.com/JorchDev-sudo/library-api.git
 cd library-api
 
-2️⃣ Variables de entorno requeridas
-JWT_SECRET
+2️⃣ Required Environment Variables
+JWT_SECRET=your_secret_key
 
-3️⃣ Ejecutar en entorno de desarrollo
+
+You can configure this via:
+
+System environment variables
+
+IDE Configurations
+
+Deployment environment
+
+3️⃣ Run in development mode
 mvn spring-boot:run
 
-Por defecto:
+Default configuration:
 
-Base de datos: H2
+Database: H2
 
-Perfil activo: dev
+Active profile: dev
 
-🌍 Perfiles
-Perfil	Base de datos
-dev	H2 
-prod	PostgreSQL y Flyway
+🌍 Spring Profiles:
 
-La activación se realiza mediante:
+dev	H2 (in-memory)
+prod	PostgreSQL + Flyway
+
+Activate a profile using:
+
 spring.profiles.active=dev
+
+🧪 Testing Strategy
+
+Unit tests for:
+
+Services
+
+Mappers
+
+Security components
+
+Security tests for:
+
+JWT validation
+
+Authentication filters
+
+Access restrictions
+
+Mockito used for controlled isolation of dependencies
+
+Testing is focused on business rules, security correctness, and mapping reliability.
+
+This project reflects how I structure and build maintainable backend systems beyond simple CRUD demos.
+
+📬 Contact
+
+If you’d like to discuss this project or my backend experience:
+
+💼 LinkedIn: www.linkedin.com/in/jorge-cotera-lópez-24180438a
+
+📧 Email: jorgecoteralopez@gmail.com
