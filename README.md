@@ -1,18 +1,12 @@
 📚 Library API
 
-## 🧪 Try it quickly
+## 🚀 Live Demo (Deployed)
 
-1. Open Swagger for documentation:
-  https://librarymanagementsystem-oddu.onrender.com/swagger-ui/index.html
+🔗 **Base URL:**  
+https://librarymanagementsystem-oddu.onrender.com
 
-2. Register a user via `/auth/register`
-
-3. Login via `/auth/login`
-
-4. Use the JWT Token that was provided
- 
-5. Test secured endpoints
-
+📄 **Swagger / OpenAPI:**  
+https://librarymanagementsystem-oddu.onrender.com/swagger-ui/index.html
 
 📌 Overview
 
