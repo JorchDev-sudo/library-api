@@ -1,19 +1,12 @@
 📚 Library API
 
+## 🚀 Live Demo (Deployed)
 
+🔗 **Base URL:**  
+https://librarymanagementsystem-oddu.onrender.com
 
-
-
-
-
-
-
-
-
-
-
-
-
+📄 **Swagger / OpenAPI:**  
+https://librarymanagementsystem-oddu.onrender.com/swagger-ui/index.html
 
 📌 Overview
 
